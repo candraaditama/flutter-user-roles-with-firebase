@@ -3,7 +3,8 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:user_roles/ui/admin_home.dart';
 import 'package:user_roles/ui/home.dart';
-import 'package:user_roles/ui/login.dart';
+//import 'package:user_roles/ui/login.dart';
+import 'package:user_roles/ui/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:user_roles/utils/auth_helper.dart';
 
@@ -55,7 +56,7 @@ class MainScreen extends StatelessWidget {
             );
             //return HomePage();
           }
-          return LoginPage();
+          return LoginPageUI();
         }
     );
   }

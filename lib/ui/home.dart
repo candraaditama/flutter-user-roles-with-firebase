@@ -12,7 +12,7 @@ class HomePage extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Text("Home page"),
+            Text(" User Home page"),
             RaisedButton(
               child: Text("Log out"),
               onPressed: () {
