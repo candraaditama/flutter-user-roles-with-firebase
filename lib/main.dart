@@ -1,12 +1,13 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
-import 'package:user_roles/ui/admin_home.dart';
+// import 'package:user_roles/ui/admin_home.dart';
 import 'package:user_roles/ui/home.dart';
 //import 'package:user_roles/ui/login.dart';
 import 'package:user_roles/ui/login_page.dart';
 import 'package:flutter/material.dart';
 import 'package:user_roles/utils/auth_helper.dart';
+import 'package:user_roles/admin/fitness_app_home_screen.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
         primarySwatch: Colors.blue,
@@ -42,7 +44,7 @@ class MainScreen extends StatelessWidget {
                 if(snapshot.hasData && snapshot.data != null){
                   final user = snapshot.data.data();
                   if(user['role'] =='admin'){
-                    return AdminHomePage();
+                    return FitnessAppHomeScreen();
                   }else{
                     return HomePage();
                   }
@@ -59,5 +61,17 @@ class MainScreen extends StatelessWidget {
           return LoginPageUI();
         }
     );
+  }
+}
+
+class HexColor extends Color {
+  HexColor(final String hexColor) : super(_getColorFromHex(hexColor));
+
+  static int _getColorFromHex(String hexColor) {
+    hexColor = hexColor.toUpperCase().replaceAll('#', '');
+    if (hexColor.length == 6) {
+      hexColor = 'FF' + hexColor;
+    }
+    return int.parse(hexColor, radix: 16);
   }
 }
