@@ -2,6 +2,10 @@
 
 Role-based application
 
+## Screenshots
+
+<img src="Screenshots.png" width="200">
+
 ## Getting Started
 
 This project is a starting point for a Flutter application.
